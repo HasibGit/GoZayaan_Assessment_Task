@@ -1,1 +1,14 @@
+@import "../../../color-variables.scss";
 
+.total-expense-text {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: $text-color;
+}
+
+.fraction-text {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 8px;
+  color: $shopping-color;
+}
