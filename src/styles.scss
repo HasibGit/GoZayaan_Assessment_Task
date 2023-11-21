@@ -20,5 +20,14 @@ p {
 .container {
   height: 100vh;
   width: 100vw;
+  padding: 24px;
   background-color: $page-background-color;
+}
+
+.w-100-p {
+  width: 100%;
+}
+
+.color-white {
+  color: $white-color;
 }
