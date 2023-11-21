@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IExpense } from 'src/app/interfaces/expense.interface';
+import { IChartData, IExpense } from 'src/app/interfaces/expense.interface';
 import { AppService } from 'src/app/services/app.service';
 
 @Component({
@@ -10,42 +10,67 @@ import { AppService } from 'src/app/services/app.service';
 })
 export class ChartComponent implements OnInit, OnDestroy {
   selectedFilter: string;
-  chartData: IExpense;
+  data: IExpense;
+  chartData: IChartData[] = [];
+  totalExpense: number;
 
   filterChangeSubscription: Subscription;
 
-  items: Array<{ name: string; count: number; color: string }> = [
-    { name: 'Orange', count: 50, color: 'orange' },
-    { name: 'Apple', count: 25, color: 'red' },
-    { name: 'Pear', count: 15, color: 'green' },
-  ];
-  private _total: number = 0;
-
-  constructor(private appService: AppService) {
-    if (this.items.length > 0) {
-      this._total = this.items.map((a) => a.count).reduce((x, y) => x + y);
-    }
-  }
+  constructor(private appService: AppService) {}
 
   ngOnInit(): void {
     this.appService.currentExpenseFilter.subscribe((filter) => {
+      this.chartData = [];
       this.selectedFilter = filter;
-      this.chartData = this.appService.getExpenseByFilter(this.selectedFilter);
+      this.data = this.appService.getExpenseByFilter(this.selectedFilter);
+
+      delete this.data.period;
+
+      this.calculateTotalExpense();
+      this.prepareChartData();
     });
+  }
+
+  prepareChartData() {
+    for (const [key, value] of Object.entries(this.data)) {
+      this.chartData.push({
+        category: key,
+        expense: value,
+        color: this.getColor(key),
+      });
+    }
+  }
+
+  calculateTotalExpense(): void {
+    this.totalExpense = Object.values(this.data).reduce(
+      (acc, value) => acc + value,
+      0
+    );
   }
 
   getPerimeter(radius: number): number {
     return Math.PI * 2 * radius;
   }
 
-  getColor(index: number): string {
-    return this.items[index].color;
+  getColor(category: string): string {
+    switch (category) {
+      case 'personal':
+        return '#4c49ed';
+      case 'shopping':
+        return '#afadfe';
+      case 'phone':
+        return '#4fd18b';
+      case 'other':
+        return '#141197';
+      default:
+        return '#999';
+    }
   }
 
   getOffset(radius: number, index: number): number {
     var percent = 0;
     for (var i = 0; i < index; i++) {
-      percent += this.items[i].count / this._total;
+      percent += this.chartData[i].expense / this.totalExpense;
     }
     var perimeter = Math.PI * 2 * radius;
     return perimeter * percent;

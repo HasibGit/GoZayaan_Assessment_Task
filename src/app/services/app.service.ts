@@ -20,6 +20,8 @@ export class AppService {
   }
 
   getExpenseByFilter(expensePeriod: string): IExpense {
-    return this.expenseData.find((expense) => expense.period === expensePeriod);
+    return JSON.parse(JSON.stringify(this.expenseData)).find(
+      (expense) => expense.period === expensePeriod
+    );
   }
 }
