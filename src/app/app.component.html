@@ -20,15 +20,44 @@
 
       <div class="chart"></div>
 
-      <div class="chart-footer">
+      <div
+        class="chart-footer w-100-p"
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        fxLayoutGap="20px"
+      >
         <div
-          class="color-profile"
+          class="color-tuple"
           fxLayout="row"
-          fxLayoutAlign="center center"
-          fxLayoutGap="16px"
+          fxLayout.lt-md="column"
+          fxLayoutGap="20px"
         >
-          <div class="color-tablet"></div>
-          <div class="indicator-label"></div>
+          <div class="color-profile" fxLayout="row" fxLayoutGap="12px">
+            <div class="color-tablet bg-personal"></div>
+            <p class="indicator-label">Personal</p>
+          </div>
+
+          <div class="color-profile" fxLayout="row" fxLayoutGap="12px">
+            <div class="color-tablet bg-shopping"></div>
+            <p class="indicator-label">Shopping</p>
+          </div>
+        </div>
+
+        <div
+          class="color-tuple"
+          fxLayout="row"
+          fxLayout.lt-md="column"
+          fxLayoutGap="20px"
+        >
+          <div class="color-profile" fxLayout="row" fxLayoutGap="12px">
+            <div class="color-tablet bg-phone"></div>
+            <p class="indicator-label">Phone</p>
+          </div>
+
+          <div class="color-profile" fxLayout="row" fxLayoutGap="12px">
+            <div class="color-tablet bg-other"></div>
+            <p class="indicator-label">Other</p>
+          </div>
         </div>
       </div>
     </div>

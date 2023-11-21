@@ -11,5 +11,24 @@
   height: 18px;
   width: 48px;
   border-radius: 20px;
+}
+
+.bg-personal {
   background-color: $personal-color;
+}
+
+.bg-shopping {
+  background-color: $shopping-color;
+}
+
+.bg-phone {
+  background-color: $phone-color;
+}
+
+.bg-other {
+  background-color: $other-color;
+}
+
+.indicator-label {
+  color: $faded-text-color;
 }
