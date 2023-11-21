@@ -8,6 +8,8 @@
   <div class="w-100-p" fxLayout="row" fxLayoutAlign="center center">
     <div
       class="chart-container"
+      fxLayout="column"
+      fxLayoutAlign="center center"
       fxFlex="60%"
       fxFlex.lt-lg="80%"
       fxFlex.lt-md="100%"
@@ -18,7 +20,17 @@
 
       <div class="chart"></div>
 
-      <div class="chart-footer"></div>
+      <div class="chart-footer">
+        <div
+          class="color-profile"
+          fxLayout="row"
+          fxLayoutAlign="center center"
+          fxLayoutGap="16px"
+        >
+          <div class="color-tablet"></div>
+          <div class="indicator-label"></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
