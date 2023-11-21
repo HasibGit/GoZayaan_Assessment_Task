@@ -1,13 +1,24 @@
-<svg height="100%" width="100%" viewBox="0 0 120 120">
-  <circle
-    *ngFor="let data of chartData; let i = index"
-    cx="60"
-    cy="60"
-    r="50"
-    fill="transparent"
-    stroke-width="10"
-    [attr.stroke-dasharray]="getPerimeter(50)"
-    [attr.stroke-dashoffset]="getOffset(50, i)"
-    [attr.stroke]="getColor(data.category)"
-  />
-</svg>
+<div class="mb-12 w-100-p">
+  <svg height="100%" width="100%" viewBox="0 0 120 120">
+    <circle
+      *ngFor="let data of chartData; let i = index"
+      cx="60"
+      cy="60"
+      r="50"
+      fill="transparent"
+      stroke-width="10"
+      [attr.stroke-dasharray]="getPerimeter(50)"
+      [attr.stroke-dashoffset]="getOffset(50, i)"
+      [attr.stroke]="getColor(data.category)"
+    />
+    <text
+      x="50%"
+      y="50%"
+      dominant-baseline="middle"
+      text-anchor="middle"
+      fill="#000"
+    >
+      {{ totalExpense }}
+    </text>
+  </svg>
+</div>
