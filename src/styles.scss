@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./color-variables.scss";
+
 body {
   font-family: "Helvetica Neue", sans-serif;
 }
@@ -13,4 +15,10 @@ h6,
 p {
   margin: 0;
   padding: 0;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  background-color: $page-background-color;
 }
