@@ -31,4 +31,9 @@ export const EXPENSE_DATA: IExpense[] = [
   },
 ];
 
-export const CHART_FILTER_OPTIONS: string[] = ['1M', '6M', '1Y', 'ALL TIME'];
+export enum CHART_FILTER_OPTIONS {
+  oneMonth = '1M',
+  sixMonths = '6M',
+  oneYear = '1Y',
+  allTime = 'ALL TIME',
+}

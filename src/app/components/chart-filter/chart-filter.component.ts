@@ -7,9 +7,9 @@ import { CHART_FILTER_OPTIONS } from 'src/app/constants/app.constant';
   styleUrls: ['./chart-filter.component.scss'],
 })
 export class ChartFilterComponent implements OnInit {
-  selectedFilter = 'ALL TIME';
+  selectedFilter = CHART_FILTER_OPTIONS.allTime.toString();
 
-  chartFilterOptions = CHART_FILTER_OPTIONS;
+  chartFilterOptions = Object.values(CHART_FILTER_OPTIONS);
 
   constructor() {}
 
