@@ -3,9 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
+import { ChartFilterComponent } from './components/chart-filter/chart-filter.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ChartFilterComponent],
   imports: [BrowserModule, FlexLayoutModule],
   providers: [],
   bootstrap: [AppComponent],

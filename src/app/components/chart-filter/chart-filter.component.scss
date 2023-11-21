@@ -1,0 +1,12 @@
+@import "../../../color-variables.scss";
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+.filter-container {
+  background-color: $filter-bg;
+  padding: 15px 30px;
+  border-radius: 40px;
+}
