@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CHART_FILTER_OPTIONS } from 'src/app/constants/app.constant';
+import { AppService } from 'src/app/services/app.service';
 
 @Component({
   selector: 'app-chart-filter',
@@ -11,11 +12,12 @@ export class ChartFilterComponent implements OnInit {
 
   chartFilterOptions = Object.values(CHART_FILTER_OPTIONS);
 
-  constructor() {}
+  constructor(private appService: AppService) {}
 
   ngOnInit(): void {}
 
   onSelectFilter(value: string) {
     this.selectedFilter = value;
+    this.appService.setCurrentExpenseFilter(this.selectedFilter);
   }
 }
