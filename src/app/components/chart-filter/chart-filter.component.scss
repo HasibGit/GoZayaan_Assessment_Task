@@ -7,7 +7,7 @@ button {
   border-radius: 30px;
 }
 
-button:hover {
+button:not(.selected-button):hover {
   background-color: $filter-button-hover-bg;
   cursor: pointer;
 }
@@ -17,6 +17,10 @@ button:hover {
   span {
     color: blue;
   }
+}
+
+.selected-button:hover {
+  cursor: pointer;
 }
 
 .filter-container {

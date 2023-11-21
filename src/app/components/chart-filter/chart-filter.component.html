@@ -1,9 +1,11 @@
 <div class="mb-24 w-100-p">
   <div class="filter-container" fxLayout="row" fxLayoutGap="20px">
-    <button><span>1M</span></button>
-    <button><span>6M</span></button>
-
-    <button><span>1Y</span></button>
-    <button class="selected-button"><span>ALL TIME</span></button>
+    <button
+      *ngFor="let option of chartFilterOptions"
+      (click)="onSelectFilter(option)"
+      [ngClass]="{ 'selected-button': selectedFilter === option }"
+    >
+      <span>{{ option }}</span>
+    </button>
   </div>
 </div>

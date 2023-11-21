@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { CHART_FILTER_OPTIONS } from 'src/app/constants/app.constant';
 
 @Component({
   selector: 'app-chart-filter',
   templateUrl: './chart-filter.component.html',
-  styleUrls: ['./chart-filter.component.scss']
+  styleUrls: ['./chart-filter.component.scss'],
 })
 export class ChartFilterComponent implements OnInit {
+  selectedFilter = 'ALL TIME';
 
-  constructor() { }
+  chartFilterOptions = CHART_FILTER_OPTIONS;
 
-  ngOnInit(): void {
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  onSelectFilter(value: string) {
+    this.selectedFilter = value;
   }
-
 }
