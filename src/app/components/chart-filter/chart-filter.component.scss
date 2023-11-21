@@ -3,6 +3,15 @@
 button {
   border: none;
   background-color: transparent;
+  padding: 10px;
+  border-radius: 30px;
+}
+
+.selected-button {
+  background-color: $white-color;
+  span {
+    color: blue;
+  }
 }
 
 .filter-container {
